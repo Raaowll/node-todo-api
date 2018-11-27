@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // UserModel
 var User = mongoose.model('User', {
@@ -7,6 +7,13 @@ var User = mongoose.model('User', {
     required: true,
     minlength: 1,
     trim: true
+    unique: true,
+    validate: {
+      validator: (value) => {
+
+      },
+      message: '{VALUE} is not a valid email'
+    }
   }
 });
 
